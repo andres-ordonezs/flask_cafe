@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">Edit Profile</h1>
+
+<!-- form goes here -->
+<form method="POST">
+  {% include '_form.html' %}
+
+  <button class="btn btn-primary" formaction="/profile/edit">
+    Save
+  </button>
+  <a class="btn btn-outline-secondary" href="/profile">Cancel</a>
+
+</form>
+
+{% endblock %}

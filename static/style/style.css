@@ -1,0 +1,63 @@
+.homepage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://i.ytimg.com/vi/ZJ_KzbtIDBk/maxresdefault.jpg");
+  background-size: cover;
+  z-index: -10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+.homepage-content {
+  color: white;
+  z-index: 10;
+}
+
+.homepage-content > h1 {
+  font-size: 60px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.like-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#like-btn {
+  margin-left: 20px;
+  padding: 3px 8px;
+}
+
+.cafe-map {
+  position: relative;
+  height: 350px;
+  width: 350px;
+}
+
+.cafe-map > img {
+  position: absolute; /* Position absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover entire width of the container */
+  height: 100%; /* Cover entire height of the container */
+}
