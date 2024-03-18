@@ -241,12 +241,14 @@ def signup():
                 email=form.email.data,
                 password=form.password.data,
                 image_url=form.image_url.data or None,
-                admin=True  # TODO: check this
             )
+            # breakpoint()
             db.session.commit()
 
         except IntegrityError:
+            db.session.rollback()
             flash("Username already taken", 'danger')
+            # breakpoint()
             return render_template('/auth/signup-form.html', form=form)
 
         do_login(user)
@@ -277,7 +279,7 @@ def login():
             return redirect("/cafes")
 
         else:
-            flash(f"Wrong username - password combination", "danger")
+            flash(f"Invalid credentials", "danger")
             return redirect("/cafes")
 
     else:
@@ -318,8 +320,9 @@ def edit_profile():
         user.last_name = form.last_name.data,
         user.description = form.description.data,
         user.email = form.email.data,
-        user.image_url = form.image_url.data or None,
-        user.admin = True  # TODO: check this
+        user.image_url = form.image_url.data or DEFAULT_USER_IMAGE_URL,
+        user.admin = True
+
         try:
             db.session.commit()
             flash("Profile edited", 'success')

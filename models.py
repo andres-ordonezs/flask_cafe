@@ -174,7 +174,6 @@ class User(db.Model):
         secondary='likes',
         backref='liking_users'
     )
-    # TODO: __repr__ method
 
     def __repr__(self):
         return f"<User #{self.id}: {self.username}, {self.email}>"
@@ -201,13 +200,13 @@ class User(db.Model):
     def register(
             cls,
             username,
-            admin,
             email,
             first_name,
             last_name,
             description,
-            image_url,
-            password):
+            password,
+            admin=True,
+            image_url=DEFAULT_USER_IMAGE_URL,):
         """Sign up user.
 
         Hashes password and adds user to session.
